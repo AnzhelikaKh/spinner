@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wheel of names</title>
+  <link rel="stylesheet" href="styles.css?v=label-type" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="#">Wheel of names</a>
+    <nav class="site-nav">
+      <span class="nav-link muted">by Anzhelika Khasanova</span>
+    </nav>
+  </header>
+
+  <main class="layout">
+    <section class="wheel-panel" aria-label="Wheel">
+      <div class="wheel-frame">
+        <div class="pointer" aria-hidden="true"></div>
+        <svg class="wheel-svg" viewBox="-1 -1 2 2" overflow="visible" role="img" aria-label="Spinning wheel">
+          <circle class="wheel-rim-outer" cx="0" cy="0" r="0.985" />
+          <g class="wheel-rotate"></g>
+          <circle class="wheel-hub" cx="0" cy="0" r="0.13" />
+        </svg>
+        <button type="button" class="spin-btn" id="spin-btn">Spin</button>
+      </div>
+    </section>
+
+    <section class="controls" aria-label="Choices">
+      <p class="controls-heading">Names on the wheel</p>
+      <button type="button" class="btn-add-name" data-action="add-row">+ Add name</button>
+      <div class="controls-toolbar">
+        <button type="button" class="icon-btn" data-action="clear" title="Clear list">Clear</button>
+        <button type="button" class="icon-btn" data-action="shuffle" title="Shuffle order">Shuffle</button>
+        <button type="button" class="icon-btn" data-action="sort" title="Sort A–Z">A–Z</button>
+        <button type="button" class="icon-btn" data-action="palette" title="Color theme">◐</button>
+        <button type="button" class="icon-btn" data-action="results" title="Recent spins">☰</button>
+      </div>
+      <div class="choices-scroll">
+        <ul id="choices-list" class="choices-list"></ul>
+      </div>
+      <div class="status-row">
+        <span class="entries-badge"><span id="active-count">0</span> on wheel · <span id="total-count">0</span> rows</span>
+        <span class="spin-hint" id="spin-hint"></span>
+      </div>
+      <dialog id="winner-dialog" class="winner-dialog" aria-labelledby="winner-dialog-title">
+        <div id="winner-emoji-rain" class="winner-emoji-rain" aria-hidden="true"></div>
+        <div class="winner-dialog-body">
+          <h2 id="winner-dialog-title" class="winner-dialog-title">Fortune picked...</h2>
+          <p id="winner-name" class="winner-name"></p>
+          <form method="dialog" class="winner-dialog-actions">
+            <button type="submit" class="btn-primary">OK</button>
+          </form>
+        </div>
+      </dialog>
+      <dialog id="results-dialog" class="results-dialog">
+        <form method="dialog" class="dialog-form">
+          <h2>Recent spins</h2>
+          <ul id="results-list" class="results-list"></ul>
+          <button type="submit" class="btn-primary">Close</button>
+        </form>
+      </dialog>
+    </section>
+  </main>
+
+  <script src="app.js?v=spin-fair"></script>
+</body>
+</html>
